@@ -206,4 +206,4 @@ LOGGING = {
         },
     }
 }
-# WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'
+WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'

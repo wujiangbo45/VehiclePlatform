@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 from django.core.management import execute_from_command_line
-# from gevent import monkey
+from gevent import monkey
 # monkey.patch_all()
 import os
 # 设置 Django 项目配置文件
@@ -10,6 +10,7 @@ import leancloud
 from gevent.pywsgi import WSGIServer
 from cloud import engine
 APP_ID = os.environ['LC_APP_ID']
+APP_KEY = os.environ['LC_APP_KEY']
 MASTER_KEY = os.environ['LC_APP_MASTER_KEY']
 PORT = int(os.environ['LC_APP_PORT'])
 leancloud.init(APP_ID, master_key=MASTER_KEY)
