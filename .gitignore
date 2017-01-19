@@ -89,3 +89,5 @@ ENV/
 .ropeproject
 # lean cloud
 .leancloud/
+# idea
+.idea/
