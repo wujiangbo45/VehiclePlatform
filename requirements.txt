@@ -1,4 +1,3 @@
 leancloud-sdk
 djangorestframework
 django>=1.10.0
-git+https://github.com/wujiangbo45/VehiclePlatform
