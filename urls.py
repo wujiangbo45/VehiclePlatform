@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from django.contrib.staticfiles import views
+from django.views.static import serve
 # Serializers define the API representation.
 from ManageApp.models import router
 # Routers provide an easy way of automatically determining the URL conf.
@@ -25,5 +26,6 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^static(?P<path>.*)$', views.serve, {'insecure': True}),
+    url(r'^file_dir/(?P<path>.*)$', serve, {'document_root': 'file_dir'}),
     url(r'^test/', include('ManageApp.url'))
 ]

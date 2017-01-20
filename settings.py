@@ -207,6 +207,6 @@ LOGGING = {
         },
     }
 }
-# WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'
+WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
