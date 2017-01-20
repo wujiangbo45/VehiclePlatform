@@ -67,5 +67,5 @@ class MessageRequest(HttpJsonRequest):
 
 if __name__ == "__main__":
     b = MessageRequest("1884234882")
-    print b.send_message()
+    # print b.send_message()
     # print b.verify_mobile(699153)

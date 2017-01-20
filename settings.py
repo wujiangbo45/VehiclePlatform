@@ -16,11 +16,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-print BASE_DIR
 
 CHAR_SET = 'utf-8'
-
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -28,7 +26,7 @@ STATIC_URL = '/static/'
 SECRET_KEY = '-y^x9k_vpr&pqg6!8!tw!(0g5i&wbw&3_@$j%u@@rz!td25ipw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -159,7 +157,10 @@ LOGGING = {
         'require_debug_true': {
             '()': 'django.utils.log.RequireDebugTrue',
         },
-        # 针对 DEBUG = True 的情况
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+
     },
     'formatters': {
         'standard': {
@@ -183,7 +184,7 @@ LOGGING = {
         # 用于文件输出
         'console': {
             'level': 'DEBUG',
-            'filters': ['require_debug_true'],
+            # 'filters': ['require_debug_false'],
             'class': 'logging.StreamHandler',
             'formatter': 'standard'
         },
@@ -192,18 +193,20 @@ LOGGING = {
         'django': {
             'handlers': ['file_handler', 'console'],
             'level': 'DEBUG',
-            'propagate': True  # 是否继承父类的log信息
+            'propagate': False  # 是否继承父类的log信息
         },
         'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'handlers': ['mail_admins', 'console'],
+            'level': 'WARNING',
             'propagate': False,
         },
         'django.template': {
-            'handlers': ['console'],
+            'handlers': ['console', 'console'],
             'level': 'INFO',
-            'propagate': False,
+            'propagate': True,
         },
     }
 }
-WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'
+# WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
