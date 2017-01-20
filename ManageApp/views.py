@@ -1,11 +1,15 @@
+import base64
 import json
 
 
 # Create your views here.
 import logging
+import os
+
 from django.http import StreamingHttpResponse
 
-from ManageApp.decrector_func import generic_response_body
+import settings
+from ManageApp.decrector_func import generic_response_body, streaming_response_body
 from MobileMessage.MessageRequest import MessageRequest
 
 logger = logging.getLogger(__name__)
@@ -18,5 +22,8 @@ def l_list(request):
     return {1: 3}
 
 
-
+@streaming_response_body(method='POST')
+def test_streaming(request):
+    b = open('%s/file_dir/0GP3_OTAFunctionTest0112.bin' % settings.PROJECT_DIR, 'r')
+    return b
 

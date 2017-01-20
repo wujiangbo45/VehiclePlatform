@@ -18,7 +18,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 CHAR_SET = 'utf-8'
-#STATIC_URL = '/static/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -26,7 +25,7 @@ CHAR_SET = 'utf-8'
 SECRET_KEY = '-y^x9k_vpr&pqg6!8!tw!(0g5i&wbw&3_@$j%u@@rz!td25ipw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -89,10 +88,12 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+PROJECT_DIR = os.path.dirname(__file__)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.path.dirname(__file__), 'db.sqlite3'),
+        'NAME': os.path.join(PROJECT_DIR, 'db.sqlite3'),
     }
 }
 
@@ -163,7 +164,8 @@ LOGGING = {
     },
     'formatters': {
         'standard': {
-            'format': '%(levelname)s %(asctime)s %(pathname)s %(filename)s %(module)s %(funcName)s %(lineno)d: %(message)s'
+            'format':
+                '%(levelname)s %(asctime)s %(pathname)s %(filename)s %(module)s %(funcName)s %(lineno)d: %(message)s'
         },
         # 对日志信息进行格式化，每个字段对应了日志格式中的一个字段，更多字段参考官网文档，我认为这些字段比较合适，输出类似于下面的内容
         # INFO 2016-09-03 16:25:20,067 /home/ubuntu/mysite/views.py views.py views get 29: some info...
@@ -206,6 +208,6 @@ LOGGING = {
         },
     }
 }
-WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'
+# WSGI_APPLICATION = 'VehiclePlatform.wsgi.application'
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
