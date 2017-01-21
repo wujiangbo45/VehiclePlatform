@@ -43,9 +43,4 @@ class GenericStreamingResponse(StreamingHttpResponse):
 
     def __init__(self, content):
         super(GenericStreamingResponse, self).__init__(content_type="octet-stream")
-        self.streaming_content = self.file_stream(content)
-
-    @staticmethod
-    def file_stream(file_stream):
-        for c in file_stream:
-            yield base64.b64encode(c)
+        self.streaming_content = (base64.b64encode(x) for x in content)
