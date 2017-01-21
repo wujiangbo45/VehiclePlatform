@@ -24,6 +24,6 @@ def l_list(request):
 
 @streaming_response_body(method='POST')
 def test_streaming(request):
-    b = open('%s/file_dir/0GP3_OTAFunctionTest0112.bin' % settings.PROJECT_DIR, 'r')
+    b = open('%s/file_dir/test.html' % settings.PROJECT_DIR, 'r')
     return b
 
