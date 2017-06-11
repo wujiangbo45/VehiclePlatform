@@ -16,7 +16,6 @@ from Const import CONTENT_TYPE_JSON
 
 class HttpRequestBase(object):
     """
-
     """
 
     def __init__(self, url=None, data=None):
@@ -24,6 +23,7 @@ class HttpRequestBase(object):
         self._headers = {}
         self._data = data
         self._response = None
+
         self._code = None
         self._res = None
 
@@ -109,5 +109,5 @@ class HttpJsonRequest(HttpRequestBase):
         self._data = json.dumps(value)
 
 if __name__ == "__main__":
-    print HttpJsonRequest(url="http://localhost:8000/test/",
+    print HttpJsonRequest(url="http://localhost:8000/test/1/",
                           data={"carId": "33333"}).get_post_response()

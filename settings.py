@@ -130,7 +130,7 @@ USE_L10N = True
 USE_TZ = True
 
 # const -------------------
-X_LC_ID = 'rJevEsgJi6uTBO0vjs3ydAK8-gzGzoHsz'
+X_LC_ID = 'GSPNUkM78XPBRHpMBebdNA55-gzGzoHsz'
 X_LC_KEY = 'pKdYxbpe9JErJo6oNbCVkXUB'
 TTL = 10
 MESSAGE_NAME = '测试'

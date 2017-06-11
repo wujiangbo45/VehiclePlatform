@@ -20,3 +20,11 @@ if __name__ == "__main__":
             )
         raise
     execute_from_command_line(sys.argv)
+    execute_from_command_line(['', 'makemigrations', 'ManageApp'])
+    execute_from_command_line(['', 'migrate'])
+    from django.contrib.auth.models import User
+
+    try:
+        User.objects.get(username='admin')
+    except:
+        User.objects.create_superuser('admin', 'emailname@demon.com', 'woshi123')
